@@ -47,10 +47,6 @@ resource "azurerm_virtual_machine_scale_set" "vm-linux" {
 
   storage_profile_image_reference {
     id        = "${var.vm_os_id}"
-    publisher = "${coalesce(var.vm_os_publisher, module.os.calculated_value_os_publisher)}"
-    offer     = "${coalesce(var.vm_os_offer, module.os.calculated_value_os_offer)}"
-    sku       = "${coalesce(var.vm_os_sku, module.os.calculated_value_os_sku)}"
-    version   = "${var.vm_os_version}"
   }
 
   storage_profile_os_disk {
